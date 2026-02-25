@@ -1,9 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const currentYear = new Date().getFullYear()
+const copyrightPeriod = `2026 ${currentYear === 2026 ? '' : '- ' + currentYear}`
+</script>
 
 <template>
-  <div class="mx-auto my-0 w-fit">
-    <p>&#169; 2026</p>
-  </div>
+  <footer class="mx-auto my-0 w-fit">
+    <p>&#169; {{ copyrightPeriod }}</p>
+  </footer>
 </template>
 
 <style scoped></style>

@@ -2,6 +2,15 @@
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
+      fontWeight: {
+        400: '400',
+        500: '500',
+        600: '600',
+      },
+    },
   },
 }

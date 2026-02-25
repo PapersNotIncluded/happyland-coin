@@ -4,9 +4,7 @@ import DefaultLayout from '../app/layouts/DefaultLayout.vue'
 
 <template>
   <default-layout>
-    <div class="mx-auto my-0 w-fit">
-      <h1>Lorem pipsum</h1>
-    </div>
+    <div class="mx-auto my-0 w-fit"></div>
   </default-layout>
 </template>
 

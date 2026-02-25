@@ -24,14 +24,18 @@ const headerLinks = [
 </script>
 
 <template>
-  <div class="mx-auto my-0 flex w-fit gap-5">
-    <p
-      v-for="link in headerLinks"
-      :key="link.name"
-    >
-      {{ link.name }}
-    </p>
-  </div>
+  <header class="flex w-full items-end justify-end py-5">
+    <div class="flex w-fit gap-6">
+      <a
+        v-for="link in headerLinks"
+        :key="link.name"
+        class="inter-500 text-[18px]"
+        :href="link.link"
+      >
+        {{ link.name }}
+      </a>
+    </div>
+  </header>
 </template>
 
 <style scoped></style>
