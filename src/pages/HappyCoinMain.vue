@@ -4,6 +4,7 @@ import { HeroScreen } from '@/widgets/hero-screen'
 import { StepsScreen } from '@/widgets/steps-screen'
 import { AboutScreen } from '@/widgets/about-screen'
 import { ReviewScreen } from '@/widgets/review-screen'
+import ConstructorScreen from '@/widgets/constructor-screen/ui/ConstructorScreen.vue'
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import { ReviewScreen } from '@/widgets/review-screen'
       <HeroScreen />
       <AboutScreen />
       <StepsScreen />
+      <ConstructorScreen />
       <ReviewScreen />
     </div>
   </default-layout>
