@@ -3,6 +3,7 @@ import DefaultLayout from '../app/layouts/DefaultLayout.vue'
 import { HeroScreen } from '@/widgets/hero-screen'
 import { StepsScreen } from '@/widgets/steps-screen'
 import { AboutScreen } from '@/widgets/about-screen'
+import ConstructorScreen from '@/widgets/constructor-screen/ui/ConstructorScreen.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import { AboutScreen } from '@/widgets/about-screen'
       <HeroScreen />
       <AboutScreen />
       <StepsScreen />
+      <ConstructorScreen />
     </div>
   </default-layout>
 </template>
