@@ -7,6 +7,7 @@ import { ReviewScreen } from '@/widgets/review-screen'
 import ConstructorScreen from '@/widgets/constructor-screen/ui/ConstructorScreen.vue'
 import FaqScreen from '@/widgets/faq-screen/ui/FaqScreen.vue'
 import { OrderScreen } from '@/widgets/order-screen'
+import { CallbackScreen } from '@/widgets/callback-screen'
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import { OrderScreen } from '@/widgets/order-screen'
       <ReviewScreen />
       <FaqScreen />
       <OrderScreen />
+      <CallbackScreen />
     </div>
   </default-layout>
 </template>
