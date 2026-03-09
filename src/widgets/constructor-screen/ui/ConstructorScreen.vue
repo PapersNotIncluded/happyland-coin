@@ -109,6 +109,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
         </svg>
       </div>
     </div>
+
   </div>
 </template>
 
