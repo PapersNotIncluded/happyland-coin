@@ -3,10 +3,13 @@ import { computed, ref } from 'vue'
 import { CoinHeading } from '@/shared/coin-heading'
 import { CoinTag } from '@/shared/coin-tag'
 
-const firstName = ref('Саша')
-const secondName = ref('Диана')
+const firstName = ref('Витя')
+const secondName = ref('Глаша')
 
 const svgText = computed(() => `${firstName.value}           ${secondName.value}`.replace(/ /g, '\u00a0'))
+const currentDate = new Date()
+const month = (currentDate.getMonth() + 1).toString().padStart(2, '0')
+const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullYear()}`
 </script>
 
 <template>
@@ -15,7 +18,6 @@ const svgText = computed(() => `${firstName.value}           ${secondName.value}
       <CoinTag tag-type="fill">Конструктор медали</CoinTag>
       <CoinHeading>Напишите слова, которые<span> останутся навсегда</span></CoinHeading>
     </div>
-
     <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
       <div class="flex flex-col gap-4">
         <label class="flex flex-col gap-2 text-sm font-medium text-gray-700">
@@ -77,19 +79,33 @@ const svgText = computed(() => `${firstName.value}           ${secondName.value}
               {{ svgText }}
             </textPath>
           </text>
+        </svg>
+        <svg
+          class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-20deg] overflow-visible"
+          width="310"
+          height="310"
+          viewBox="0 0 100 100"
+        >
+          <defs>
+            <path
+              id="pathCircle"
+              d="M 50 50 m -40 0 a 40 40 0 1 1 80 0 a 40 40 0 1 1 -80 0"
+              fill="black"
+            />
+          </defs>
 
-          <!--          <text-->
-          <!--            fill="black"-->
-          <!--            font-size="8"-->
-          <!--          >-->
-          <!--            <textPath-->
-          <!--              href="#pathCircle"-->
-          <!--              startOffset="7%"-->
-          <!--              text-anchor="start"-->
-          <!--            >-->
-          <!--              {{ secondName }}-->
-          <!--            </textPath>-->
-          <!--          </text>-->
+          <text
+            fill="black"
+            font-size="8"
+          >
+            <textPath
+              href="#pathCircle"
+              startOffset="180"
+              text-anchor="start"
+            >
+              {{ svgCurrentDate }}
+            </textPath>
+          </text>
         </svg>
       </div>
     </div>
