@@ -65,6 +65,7 @@ const reviewsContent = [
     display: grid;
     grid-template: 1fr / repeat(3, 1fr);
     margin: 40px 0 0 0;
+    gap: 20px;
     color: #272525;
     font-size: 18px;
   }

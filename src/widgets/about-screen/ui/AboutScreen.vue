@@ -19,10 +19,15 @@ const cardContent = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <div class="mx-auto flex max-w-[1240px] flex-col gap-4">
     <CoinTag tag-type="fill">Наш продукт</CoinTag>
     <CoinHeading>Что такое <span>Happy Coin?</span></CoinHeading>
     <div class="about__wrapper mt-[20px] mb-[20px]">
+      <img
+        class="max-w-[400px]"
+        alt="Medal image"
+        src="@/shared/assets/love-draw.png"
+      />
       <div class="flex flex-col gap-4 text-[18px]">
         <p>
           Happy Coin — это изящная круглая медаль из металла с уникальным механизмом: в центре вращается миниатюрное
@@ -30,7 +35,7 @@ const cardContent = [
           дату, имена или особые слова.
         </p>
         <p>Каждая медаль создаётся вручную под ваш заказ и доставляется в подарочной упаковке прямо до двери.</p>
-        <div class="about__cards bg-[] gap-4">
+        <div class="about__cards gap-4">
           <div
             v-for="(item, i) in cardContent"
             :key="item.text"
@@ -41,11 +46,6 @@ const cardContent = [
           </div>
         </div>
       </div>
-      <img
-        class="max-w-[400px]"
-        alt="Medal image"
-        src="@/shared/assets/love-draw.png"
-      />
     </div>
   </div>
 </template>
@@ -54,6 +54,7 @@ const cardContent = [
 .about {
   &__wrapper {
     display: grid;
+    justify-items: center;
     grid-template: 1fr / repeat(2, 1fr);
   }
 
