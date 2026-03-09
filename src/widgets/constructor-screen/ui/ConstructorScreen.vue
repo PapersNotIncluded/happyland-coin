@@ -81,27 +81,27 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
           </text>
         </svg>
         <svg
-          class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-20deg] overflow-visible"
-          width="310"
-          height="310"
+          class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-88deg] overflow-visible"
+          width="350"
+          height="350"
           viewBox="0 0 100 100"
         >
           <defs>
             <path
-              id="pathCircle"
-              d="M 50 50 m -40 0 a 40 40 0 1 1 80 0 a 40 40 0 1 1 -80 0"
-              fill="black"
+              id="pathCircleReverse"
+              d="M 50 50 m 40 0 a 40 40 0 1 0 -80 0 a 40 40 0 1 0 80 0"
+              fill="none"
             />
           </defs>
 
           <text
             fill="black"
-            font-size="8"
+            font-size="7"
           >
             <textPath
-              href="#pathCircle"
-              startOffset="180"
-              text-anchor="start"
+              href="#pathCircleReverse"
+              startOffset="50%"
+              text-anchor="middle"
             >
               {{ svgCurrentDate }}
             </textPath>
@@ -109,7 +109,6 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
         </svg>
       </div>
     </div>
-
   </div>
 </template>
 
