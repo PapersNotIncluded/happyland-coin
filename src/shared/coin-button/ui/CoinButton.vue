@@ -24,13 +24,33 @@ const buttonClasses = computed(() => [
       : 'bg-black text-white hover:bg-gray-800 hover:scale-105',
 ])
 
-const buttonInlineStyles = computed(() => [
-  backgroundColor ?? `background-color: ${backgroundColor};`,
-  color ?? `color: ${color};`,
-  borderRadius ?? `border-radius: [${borderRadius}px];`,
-  padX ?? `padding: ${padX}px `,
-  padY ?? `py-${padY}`,
-])
+const buttonInlineStyles = computed(() => {
+  const styles: Record<string, string | number> = {}
+  
+  if (backgroundColor) {
+    styles.backgroundColor = backgroundColor
+  }
+  
+  if (color) {
+    styles.color = color
+  }
+  
+  if (borderRadius) {
+    styles.borderRadius = `${borderRadius}px`
+  }
+  
+  if (padX !== undefined) {
+    styles.paddingLeft = `${padX}px`
+    styles.paddingRight = `${padX}px`
+  }
+  
+  if (padY !== undefined) {
+    styles.paddingTop = `${padY}px`
+    styles.paddingBottom = `${padY}px`
+  }
+  
+  return styles
+})
 </script>
 
 <template>
