@@ -45,7 +45,7 @@ const toggleAccordion = (index: number) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <section class="flex w-full flex-col gap-4">
     <CoinTag tag-type="fill">FAQ</CoinTag>
     <CoinHeading>Часто задаваемые <span>вопросы</span></CoinHeading>
     <div class="flex flex-col items-center gap-6">
@@ -56,22 +56,22 @@ const toggleAccordion = (index: number) => {
         @click="toggleAccordion(i)"
       >
         <div class="flex items-center justify-between">
-          <p class="inter-700 text-[22px]">{{ item.title }}</p>
+          <p class="inter-700 pr-3 text-[18px] leading-[24px] md:text-[20px] md:leading-[26px] lg:text-[22px]">{{ item.title }}</p>
           <img
             alt="Arrow icon"
-            :class="['w-[24px] transition-transform duration-300', item.opened ? 'rotate-180' : '']"
+            :class="['w-5 shrink-0 transition-transform duration-300 md:w-6', item.opened ? 'rotate-180' : '']"
             src="@/shared/assets/arrow-up.svg"
           />
         </div>
         <div :class="['accordion__wrapper', item.opened ? 'accordion__wrapper_opened' : '']">
           <div class="accordion__item">
-            <p class="mt-[18px] text-[18px]">{{ item.text }}</p>
+            <p class="mt-[18px] text-[16px] md:text-[18px]">{{ item.text }}</p>
           </div>
         </div>
-        <div class="absolute top-0 left-0 h-[6px] w-full bg-[#4950bc]"></div>
+        <div class="absolute top-0 left-0 h-1 w-full bg-[#4950bc] md:h-[6px]"></div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

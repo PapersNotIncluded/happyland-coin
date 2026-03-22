@@ -13,12 +13,12 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
 </script>
 
 <template>
-  <div class="flex flex-col gap-10">
+  <section class="flex w-full flex-col gap-8 md:gap-10">
     <div class="flex flex-col gap-4">
       <CoinTag tag-type="fill">Конструктор медали</CoinTag>
       <CoinHeading>Напишите слова, которые<span> останутся навсегда</span></CoinHeading>
     </div>
-    <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
+    <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
       <div class="flex flex-col gap-4">
         <label class="flex flex-col gap-2 text-sm font-medium text-gray-700">
           Первое имя
@@ -45,7 +45,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
 
       <div
         ref="containerRef"
-        class="relative mx-auto flex h-[360px] w-[360px] max-w-full items-center justify-center"
+        class="relative mx-auto flex h-[260px] w-[260px] max-w-full items-center justify-center md:h-[320px] md:w-[320px] lg:h-[360px] lg:w-[360px]"
       >
         <img
           src="@/shared/assets/constructor.png"
@@ -54,8 +54,8 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
         />
         <svg
           class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-88deg] overflow-visible"
-          width="310"
-          height="310"
+          width="260"
+          height="260"
           viewBox="0 0 100 100"
         >
           <defs>
@@ -69,7 +69,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
           <text
             xml:space="preserve"
             fill="black"
-            font-size="8"
+            font-size="7"
           >
             <textPath
               href="#pathCircle"
@@ -82,8 +82,8 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
         </svg>
         <svg
           class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-88deg] overflow-visible"
-          width="350"
-          height="350"
+          width="300"
+          height="300"
           viewBox="0 0 100 100"
         >
           <defs>
@@ -96,7 +96,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
 
           <text
             fill="black"
-            font-size="7"
+            font-size="6"
           >
             <textPath
               href="#pathCircleReverse"
@@ -109,7 +109,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
         </svg>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped></style>

@@ -5,7 +5,7 @@ import type { CoinTagProps } from '../model/type.ts'
 const { tagType = 'fill' } = defineProps<CoinTagProps>()
 
 const tagClasses = computed(() => [
-  'fz-[14px] uppercase w-fit py-[6px] px-[10px] rounded-[6px]',
+  'text-[14px] uppercase w-fit py-[6px] px-[10px] rounded-[6px]',
   tagType === 'fill'
     ? 'bg-[#DADBF1] text-[#272525] border-1 border-[#DADBF1]'
     : 'text-[#4950BC] border-1 border-[#4950BC]',

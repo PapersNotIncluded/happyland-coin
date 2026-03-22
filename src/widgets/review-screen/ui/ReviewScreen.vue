@@ -25,7 +25,7 @@ const reviewsContent = [
 </script>
 
 <template>
-  <div class="mt-20 mb-20 flex flex-col">
+  <section class="my-12 flex w-full flex-col md:my-16 lg:my-20">
     <CoinTag tag-type="outline">Отзывы</CoinTag>
     <CoinHeading>Истории <span>счастливых</span> покупателей</CoinHeading>
     <div class="review__wrapper">
@@ -35,7 +35,7 @@ const reviewsContent = [
         class="flex max-w-[400px] flex-col items-center gap-4"
       >
         <div
-          class="relative flex h-full flex-col justify-center gap-4 rounded-[10px] border-2 border-[#C0C1D7] p-[20px]"
+          class="relative flex h-full flex-col justify-center gap-4 rounded-[10px] border-2 border-[#C0C1D7] p-4 md:p-5"
         >
           <p>{{ review.text }}</p>
           <p class="inter-600">{{ review.name }}</p>
@@ -51,23 +51,33 @@ const reviewsContent = [
           />
         </div>
         <div class="w-fit text-center">
-          <p class="inter-700 text-[60px]">{{ review.number }}</p>
-          <p class="inter-700 text-[22px]">{{ review.title }}</p>
+          <p class="inter-700 text-[42px] md:text-[50px] lg:text-[60px]">{{ review.number }}</p>
+          <p class="inter-700 text-[20px] md:text-[22px]">{{ review.title }}</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">
 .review {
   &__wrapper {
     display: grid;
-    grid-template: 1fr / repeat(3, 1fr);
+    grid-template-columns: 1fr;
     margin: 40px 0 0 0;
     gap: 20px;
     color: #272525;
-    font-size: 18px;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      font-size: 17px;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      font-size: 18px;
+    }
   }
 }
 </style>

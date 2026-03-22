@@ -4,7 +4,7 @@ import { HappyCoinHeader } from '../../widgets/header'
 </script>
 
 <template>
-  <div class="mx-auto max-w-[1440px]">
+  <div class="mx-auto w-full max-w-[1440px] overflow-x-clip px-4 md:px-6 lg:px-10">
     <HappyCoinHeader />
     <slot></slot>
     <HappyCoinFooter />

@@ -14,9 +14,9 @@ const {
 } = defineProps<ButtonProps>()
 
 const buttonClasses = computed(() => [
-  'font-semibold rounded-lg transition inter-600 cursor-pointer transition duration-300',
+  'inter-600 w-full cursor-pointer rounded-lg font-semibold transition duration-300 md:w-auto',
   stretched ? 'w-full' : '',
-  size === 'm' ? 'text-base py-3 px-6' : 'text-sm py-2 px-4',
+  size === 'm' ? 'px-5 py-3 text-sm md:px-6 md:text-base' : 'px-4 py-2 text-sm',
   buttonType === 'default'
     ? 'bg-[#e31e24] border-[1px] border-dashed border-[#e31e24] text-white hover:bg-transparent hover:text-[#e31e24] hover:border-[1px] hover:border-[#e31e24]'
     : buttonType === 'outline'
@@ -54,7 +54,7 @@ const buttonInlineStyles = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="w-full md:w-auto">
     <button
       :class="buttonClasses"
       :style="buttonInlineStyles"

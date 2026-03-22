@@ -13,7 +13,7 @@ import { QuestionModal } from '@/widgets/question-modal'
 
 <template>
   <default-layout>
-    <div class="mx-auto flex w-full flex-col items-center gap-16 md:gap-24">
+    <div class="mx-auto flex w-full flex-col gap-16 pb-12 md:gap-20 md:pb-16 lg:gap-24 lg:pb-20">
       <HeroScreen />
       <AboutScreen />
       <StepsScreen />

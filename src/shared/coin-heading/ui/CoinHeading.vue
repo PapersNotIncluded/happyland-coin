@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <h1 class="inter-700 text-[44px] leading-[56px]">
+  <h1 class="inter-700 text-[32px] leading-[40px] md:text-[38px] md:leading-[48px] lg:text-[44px] lg:leading-[56px]">
     <slot></slot>
   </h1>
 </template>
