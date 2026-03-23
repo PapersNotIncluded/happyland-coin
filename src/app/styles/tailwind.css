@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+.reveal {
+  --reveal-duration: 620ms;
+  --reveal-delay: 0ms;
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease) var(--reveal-delay),
+    transform var(--reveal-duration) var(--reveal-ease) var(--reveal-delay);
+  will-change: opacity, transform;
+}
+
+.reveal--fade-in {
+  transform: none;
+}
+
+.reveal--zoom-soft {
+  transform: scale(0.96);
+  transform-origin: center;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

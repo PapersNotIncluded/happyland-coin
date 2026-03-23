@@ -37,24 +37,33 @@ const callbackContent = [
 
 <template>
   <section class="flex w-full flex-col gap-4">
-    <CoinTag tag-type="outline">Обратная связь</CoinTag>
-    <CoinHeading>Есть вопросы? <span>Напишите нам</span></CoinHeading>
+    <div v-reveal="{ type: 'fade-in', delay: 0 }">
+      <CoinTag tag-type="outline">Обратная связь</CoinTag>
+    </div>
+    <div v-reveal="{ type: 'fade-up', delay: 80 }">
+      <CoinHeading>Есть вопросы? <span>Напишите нам</span></CoinHeading>
+    </div>
     <div class="flex flex-col gap-6 lg:flex-row">
       <div class="flex w-full max-w-[600px] flex-col gap-6">
-        <img
-          alt="Callback image"
-          class="h-auto w-full"
-          src="@/shared/assets/callback.png"
-        />
-        <p class="text-[16px] md:text-[18px]">
-          Мы отвечаем на все обращения в течение нескольких часов. Рады помочь с выбором
-          текста, оформлением заказа или любым другим вопросом.
+        <div v-reveal="{ type: 'zoom-soft', delay: 120 }">
+          <img
+            alt="Callback image"
+            class="h-auto w-full"
+            src="@/shared/assets/callback.png"
+          />
+        </div>
+        <p
+          v-reveal="{ type: 'fade-up', delay: 180 }"
+          class="text-[16px] md:text-[18px]"
+        >
+          Мы отвечаем на обращения в течение нескольких часов. Поможем с текстом для медали, оформлением заказа и любыми организационными вопросами.
         </p>
       </div>
       <div class="callback__wrapper w-full self-center lg:w-fit">
         <a
-          v-for="item in callbackContent"
+          v-for="(item, i) in callbackContent"
           :key="item.text"
+          v-reveal="{ type: 'fade-up', delay: 220 + i * 80 }"
           target="_blank"
           :href="item.link"
           class="flex w-full items-center justify-start gap-2 rounded-[10px] bg-[#DADBF1] p-5 md:p-[30px]"
@@ -66,12 +75,14 @@ const callbackContent = [
           />
           <p class="break-all text-[16px] md:text-[18px]">{{ item.text }}</p>
         </a>
-        <CoinButton
-          class="justify-self-center lg:col-span-2"
-          button-type="default"
-        >
-          Обратный звонок
-        </CoinButton>
+        <div v-reveal="{ type: 'fade-up', delay: 540 }">
+          <CoinButton
+            class="justify-self-center lg:col-span-2"
+            button-type="default"
+          >
+            Обратный звонок
+          </CoinButton>
+        </div>
       </div>
     </div>
   </section>

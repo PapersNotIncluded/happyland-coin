@@ -4,41 +4,46 @@ import { CoinHeading } from '@/shared/coin-heading'
 
 const reviewsContent = [
   {
-    text: '«Подарила мужу на годовщину. Он был в слезах! Текст получился именно таким, как я хотела. Упаковка просто волшебная — как будто из ювелирного магазина.»',
-    name: '— Анна К., Москва',
+    text: 'Подарила медаль мужу на годовщину. Текст выгравировали именно так, как я просила, а упаковка выглядела как полноценный подарок.',
+    name: 'Анна К., Москва',
     number: '5000+',
-    title: 'Счастливых заказов',
+    title: 'счастливых заказов',
   },
   {
-    text: '«Заказывал для девушки на День Святого Валентина. Медаль пришла за 2 дня, всё идеально. Гравировка чёткая, сердечко крутится — это так мило! Буду заказывать ещё.»',
-    name: '— Дмитрий С., Мурманск',
-    number: '4.9★',
-    title: 'Средняя оценка',
+    text: 'Заказывал подарок ко Дню святого Валентина. Медаль пришла быстро, гравировка аккуратная, а сама идея с сердцем действительно работает.',
+    name: 'Дмитрий С., Мурманск',
+    number: '4.9/5',
+    title: 'средняя оценка',
   },
   {
-    text: '«Уже третий заказ — дарю близким на все праздники. Каждый раз восторг и слёзы радости. Спасибо Happy Coin за такие тёплые эмоции!»',
-    name: '— Марина В., Екатеринбург',
+    text: 'Это уже третий заказ для близких. Каждый раз эмоции очень сильные, потому что подарок ощущается личным, а не шаблонным.',
+    name: 'Марина В., Екатеринбург',
     number: '98%',
-    title: 'Рекомендуют друзьям',
+    title: 'рекомендуют друзьям',
   },
 ]
 </script>
 
 <template>
   <section class="my-12 flex w-full flex-col md:my-16 lg:my-20">
-    <CoinTag tag-type="outline">Отзывы</CoinTag>
-    <CoinHeading>Истории <span>счастливых</span> покупателей</CoinHeading>
+    <div v-reveal="{ type: 'fade-in', delay: 0 }">
+      <CoinTag tag-type="outline">Отзывы</CoinTag>
+    </div>
+    <div v-reveal="{ type: 'fade-up', delay: 80 }">
+      <CoinHeading>Истории <span>счастливых</span> покупателей</CoinHeading>
+    </div>
     <div class="review__wrapper">
       <div
-        v-for="review in reviewsContent"
+        v-for="(review, i) in reviewsContent"
         :key="review.title"
+        v-reveal="{ type: 'fade-up', delay: 140 + i * 100 }"
         class="flex max-w-[400px] flex-col items-center gap-4"
       >
         <div
           class="relative flex h-full flex-col justify-center gap-4 rounded-[10px] border-2 border-[#C0C1D7] p-4 md:p-5"
         >
           <p>{{ review.text }}</p>
-          <p class="inter-600">{{ review.name }}</p>
+          <p class="inter-600">— {{ review.name }}</p>
           <img
             alt="Quotes icon"
             class="absolute top-0 left-0 w-[26px] translate-[-10px]"

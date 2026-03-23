@@ -136,7 +136,13 @@ const handleLinkClick = (link: HeaderLink, event: MouseEvent) => {
 }
 
 const handleBrandClick = (event: MouseEvent) => {
-  handleLinkClick(headerLinks[0], event)
+  const heroLink = headerLinks[0]
+
+  if (!heroLink) {
+    return
+  }
+
+  handleLinkClick(heroLink, event)
 }
 
 onMounted(() => {

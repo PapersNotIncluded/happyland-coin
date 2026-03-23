@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 import { computed, ref } from 'vue'
 import { CoinHeading } from '@/shared/coin-heading'
 import { CoinTag } from '@/shared/coin-tag'
@@ -15,11 +15,18 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
 <template>
   <section class="flex w-full flex-col gap-8 md:gap-10">
     <div class="flex flex-col gap-4">
-      <CoinTag tag-type="fill">Конструктор медали</CoinTag>
-      <CoinHeading>Напишите слова, которые<span> останутся навсегда</span></CoinHeading>
+      <div v-reveal="{ type: 'fade-in', delay: 0 }">
+        <CoinTag tag-type="fill">Конструктор медали</CoinTag>
+      </div>
+      <div v-reveal="{ type: 'fade-up', delay: 80 }">
+        <CoinHeading>Напишите слова, которые<span> останутся навсегда</span></CoinHeading>
+      </div>
     </div>
     <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
-      <div class="flex flex-col gap-4">
+      <div
+        v-reveal="{ type: 'fade-up', delay: 140 }"
+        class="flex flex-col gap-4"
+      >
         <label class="flex flex-col gap-2 text-sm font-medium text-gray-700">
           Первое имя
           <input
@@ -45,6 +52,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
 
       <div
         ref="containerRef"
+        v-reveal="{ type: 'zoom-soft', delay: 180 }"
         class="relative mx-auto flex h-[260px] w-[260px] max-w-full items-center justify-center md:h-[320px] md:w-[320px] lg:h-[360px] lg:w-[360px]"
       >
         <img
