@@ -2,31 +2,35 @@
 import { CoinTag } from '@/shared/coin-tag'
 import { CoinHeading } from '@/shared/coin-heading'
 import { CoinButton } from '@/shared/coin-button'
+import phoneIcon from '@/shared/assets/phoneIcon.svg'
+import telegramIcon from '@/shared/assets/telegramIcon.svg'
+import emailIcon from '@/shared/assets/emailIcon.svg'
+import maxIcon from '@/shared/assets/maxIcon.svg'
 
 const callbackContent = [
   {
     link: 'tel:+71234567890',
     text: '+7 (123) 456-78-90',
     alt: 'Phone Icon',
-    icon: 'src/shared/assets/phoneIcon.svg',
+    icon: phoneIcon,
   },
   {
     link: 'https://t.me/rmunger',
     text: '@rmunger',
     alt: 'Telegram Icon',
-    icon: 'src/shared/assets/telegramIcon.svg',
+    icon: telegramIcon,
   },
   {
     link: 'mailto:support@happy-coin.ru',
     text: 'support@happy-coin.ru',
     alt: 'Email Icon',
-    icon: 'src/shared/assets/emailIcon.svg',
+    icon: emailIcon,
   },
   {
     link: '/',
     text: '@linkToMax',
     alt: 'Max Messenger Icon',
-    icon: 'src/shared/assets/maxIcon.svg',
+    icon: maxIcon,
   },
 ]
 </script>

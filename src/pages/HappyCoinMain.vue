@@ -14,15 +14,40 @@ import { QuestionModal } from '@/widgets/question-modal'
 <template>
   <default-layout>
     <div class="mx-auto flex w-full flex-col gap-16 pb-12 md:gap-20 md:pb-16 lg:gap-24 lg:pb-20">
-      <HeroScreen />
-      <AboutScreen />
+      <section
+        id="hero"
+        class="scroll-mt-24 md:scroll-mt-28"
+      >
+        <HeroScreen />
+      </section>
+      <section
+        id="about"
+        class="scroll-mt-24 md:scroll-mt-28"
+      >
+        <AboutScreen />
+      </section>
       <StepsScreen />
-      <ConstructorScreen />
+      <section
+        id="constructor"
+        class="scroll-mt-24 md:scroll-mt-28"
+      >
+        <ConstructorScreen />
+      </section>
       <ReviewScreen />
-      <FaqScreen />
+      <section
+        id="faq"
+        class="scroll-mt-24 md:scroll-mt-28"
+      >
+        <FaqScreen />
+      </section>
       <QuestionModal />
       <OrderScreen />
-      <CallbackScreen />
+      <section
+        id="contacts"
+        class="scroll-mt-24 md:scroll-mt-28"
+      >
+        <CallbackScreen />
+      </section>
     </div>
   </default-layout>
 </template>
