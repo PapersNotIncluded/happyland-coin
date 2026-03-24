@@ -91,7 +91,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
           </text>
         </svg>
         <svg
-          class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-88deg] overflow-visible"
+          class="absolute top-[60%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-88deg] overflow-visible"
           width="300"
           height="300"
           viewBox="0 0 100 100"
@@ -106,7 +106,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
 
           <text
             fill="black"
-            font-size="8"
+            font-size="7"
           >
             <textPath
               href="#pathCircleReverse"
