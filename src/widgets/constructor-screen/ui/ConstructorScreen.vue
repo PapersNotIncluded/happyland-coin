@@ -55,7 +55,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
       <div
         ref="containerRef"
         v-reveal="{ type: 'zoom-soft', delay: 180 }"
-        class="relative mx-auto flex h-[260px] w-[260px] max-w-full items-center justify-center md:h-[320px] md:w-[320px] lg:h-[360px] lg:w-[360px]"
+        class="relative mx-auto flex h-[360px] w-[360px] max-w-full items-center justify-center"
       >
         <img
           src="@/shared/assets/constructor.png"
