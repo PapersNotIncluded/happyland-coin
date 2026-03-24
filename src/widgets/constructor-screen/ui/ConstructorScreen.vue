@@ -6,7 +6,9 @@ import { CoinTag } from '@/shared/coin-tag'
 const firstName = ref('Витя')
 const secondName = ref('Глаша')
 
-const svgText = computed(() => `${firstName.value}           ${secondName.value}`.replace(/ /g, '\u00a0'))
+const svgText = computed(() =>
+  `${firstName.value}                            ${secondName.value}`.replace(/ /g, '\u00a0'),
+)
 const currentDate = new Date()
 const month = (currentDate.getMonth() + 1).toString().padStart(2, '0')
 const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullYear()}`
@@ -61,9 +63,9 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
           class="h-full w-full rounded-full object-contain select-none"
         />
         <svg
-          class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-88deg] overflow-visible"
-          width="260"
-          height="260"
+          class="absolute top-[54%] left-[50%] translate-x-[-50%] translate-y-[-50%] rotate-[-88deg] overflow-visible text-[24px]"
+          width="300"
+          height="300"
           viewBox="0 0 100 100"
         >
           <defs>
@@ -104,7 +106,7 @@ const svgCurrentDate = `${currentDate.getDate()}.${month}.${currentDate.getFullY
 
           <text
             fill="black"
-            font-size="6"
+            font-size="8"
           >
             <textPath
               href="#pathCircleReverse"
