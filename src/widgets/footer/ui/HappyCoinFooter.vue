@@ -13,6 +13,17 @@ const copyrightPeriod = currentYear === 2026 ? '2026' : `2026–${currentYear}`
       aria-hidden="true"
     ></span>
     <span>© {{ copyrightPeriod }}</span>
+    <span
+      class="hidden h-4 w-px bg-gray-200 sm:block"
+      aria-hidden="true"
+    ></span>
+    <RouterLink
+      class="font-medium text-[#4950BC] transition hover:text-[#3a4096]"
+      to="/privacy-policy"
+      target="_blank"
+    >
+      Политика конфиденциальности
+    </RouterLink>
   </footer>
 </template>
 
