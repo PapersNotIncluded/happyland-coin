@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HappyCoinMain from '@/pages/HappyCoinMain.vue'
-import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,13 +9,6 @@ const router = createRouter({
       component: HappyCoinMain,
       meta: {
         title: 'HappyCoin',
-      },
-    },
-    {
-      path: '/privacy-policy',
-      component: PrivacyPolicyPage,
-      meta: {
-        title: 'HappyCoin - Политика конфиденциальности',
       },
     },
   ],

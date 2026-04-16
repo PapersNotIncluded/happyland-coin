@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 type HeaderLink = {
   name: string
@@ -42,8 +41,6 @@ const headerLinks: HeaderLink[] = [
   },
 ]
 
-const route = useRoute()
-const router = useRouter()
 const brandLink = headerLinks[0]
 const isMenuOpen = ref(false)
 const isHeaderVisible = ref(true)
@@ -51,7 +48,7 @@ const isScrolled = ref(false)
 const headerHeight = ref(0)
 const headerElement = ref<HTMLElement | null>(null)
 const lastScrollY = ref(0)
-const isHomeRoute = computed(() => route.path === '/')
+const isHomePage = computed(() => window.location.pathname === '/')
 
 const headerClasses = computed(() => [
   'fixed',
@@ -92,11 +89,11 @@ const resolveLinkHref = (link: HeaderLink) => {
     return link.href
   }
 
-  if (isHomeRoute.value) {
+  if (isHomePage.value) {
     return link.href
   }
 
-  return router.resolve({ path: '/', hash: link.href }).href
+  return `/${link.href}`
 }
 
 const handleScroll = () => {
@@ -127,27 +124,25 @@ const handleScroll = () => {
   lastScrollY.value = currentScrollY
 }
 
-const handleLinkClick = async (link: HeaderLink, event: MouseEvent) => {
-  event.preventDefault()
+const handleLinkClick = (link: HeaderLink, event: MouseEvent) => {
   closeMenu()
   isHeaderVisible.value = true
 
   if (link.type !== 'section' || !link.sectionId) {
-    await router.push(link.href)
     return
   }
 
-  if (!isHomeRoute.value) {
-    await router.push({ path: '/', hash: link.href })
+  if (!isHomePage.value) {
     return
   }
 
   const targetElement = document.getElementById(link.sectionId)
 
   if (!targetElement) {
-    await router.push({ path: '/', hash: link.href })
     return
   }
+
+  event.preventDefault()
 
   targetElement.scrollIntoView({
     behavior: 'smooth',
@@ -164,16 +159,6 @@ const handleBrandClick = (event: MouseEvent) => {
 
   handleLinkClick(brandLink, event)
 }
-
-watch(
-  () => route.fullPath,
-  () => {
-    closeMenu()
-    isHeaderVisible.value = true
-    isScrolled.value = window.scrollY > 8
-    lastScrollY.value = window.scrollY
-  },
-)
 
 onMounted(() => {
   updateHeaderHeight()
