@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 type HeaderLink = {
   name: string
@@ -41,12 +42,16 @@ const headerLinks: HeaderLink[] = [
   },
 ]
 
+const route = useRoute()
+const router = useRouter()
+const brandLink = headerLinks[0]
 const isMenuOpen = ref(false)
 const isHeaderVisible = ref(true)
 const isScrolled = ref(false)
 const headerHeight = ref(0)
 const headerElement = ref<HTMLElement | null>(null)
 const lastScrollY = ref(0)
+const isHomeRoute = computed(() => route.path === '/')
 
 const headerClasses = computed(() => [
   'fixed',
@@ -82,6 +87,18 @@ const closeMenu = () => {
   isMenuOpen.value = false
 }
 
+const resolveLinkHref = (link: HeaderLink) => {
+  if (link.type !== 'section') {
+    return link.href
+  }
+
+  if (isHomeRoute.value) {
+    return link.href
+  }
+
+  return router.resolve({ path: '/', hash: link.href }).href
+}
+
 const handleScroll = () => {
   const currentScrollY = window.scrollY
 
@@ -110,22 +127,27 @@ const handleScroll = () => {
   lastScrollY.value = currentScrollY
 }
 
-const handleLinkClick = (link: HeaderLink, event: MouseEvent) => {
+const handleLinkClick = async (link: HeaderLink, event: MouseEvent) => {
+  event.preventDefault()
+  closeMenu()
+  isHeaderVisible.value = true
+
   if (link.type !== 'section' || !link.sectionId) {
-    closeMenu()
+    await router.push(link.href)
+    return
+  }
+
+  if (!isHomeRoute.value) {
+    await router.push({ path: '/', hash: link.href })
     return
   }
 
   const targetElement = document.getElementById(link.sectionId)
 
   if (!targetElement) {
-    closeMenu()
+    await router.push({ path: '/', hash: link.href })
     return
   }
-
-  event.preventDefault()
-  closeMenu()
-  isHeaderVisible.value = true
 
   targetElement.scrollIntoView({
     behavior: 'smooth',
@@ -136,14 +158,22 @@ const handleLinkClick = (link: HeaderLink, event: MouseEvent) => {
 }
 
 const handleBrandClick = (event: MouseEvent) => {
-  const heroLink = headerLinks[0]
-
-  if (!heroLink) {
+  if (!brandLink) {
     return
   }
 
-  handleLinkClick(heroLink, event)
+  handleLinkClick(brandLink, event)
 }
+
+watch(
+  () => route.fullPath,
+  () => {
+    closeMenu()
+    isHeaderVisible.value = true
+    isScrolled.value = window.scrollY > 8
+    lastScrollY.value = window.scrollY
+  },
+)
 
 onMounted(() => {
   updateHeaderHeight()
@@ -167,7 +197,7 @@ onBeforeUnmount(() => {
     >
       <a
         class="inter-700 text-[22px] leading-none text-[#272525] transition hover:text-[#4950BC] lg:hidden"
-        href="#hero"
+        :href="brandLink ? resolveLinkHref(brandLink) : '/'"
         @click="handleBrandClick($event)"
       >
         HappyCoin
@@ -195,7 +225,7 @@ onBeforeUnmount(() => {
           v-for="link in headerLinks"
           :key="link.name"
           class="inter-500 text-[18px] text-[#272525] transition hover:text-[#4950BC]"
-          :href="link.href"
+          :href="resolveLinkHref(link)"
           @click="handleLinkClick(link, $event)"
         >
           {{ link.name }}
@@ -210,7 +240,7 @@ onBeforeUnmount(() => {
           v-for="link in headerLinks"
           :key="`mobile-${link.name}`"
           class="inter-500 rounded-xl px-3 py-3 text-[16px] text-[#272525] transition hover:bg-[#DADBF1]"
-          :href="link.href"
+          :href="resolveLinkHref(link)"
           @click="handleLinkClick(link, $event)"
         >
           {{ link.name }}
