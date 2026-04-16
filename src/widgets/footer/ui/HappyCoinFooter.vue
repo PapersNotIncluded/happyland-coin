@@ -20,6 +20,7 @@ const copyrightPeriod = currentYear === 2026 ? '2026' : `2026–${currentYear}`
     <a
       class="font-medium text-[#4950BC] transition hover:text-[#3a4096]"
       href="/privacy-policy"
+      target="_blank"
     >
       Политика конфиденциальности
     </a>
